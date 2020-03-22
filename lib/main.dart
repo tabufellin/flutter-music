@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './do_something.dart';
+import './bottom_navigation.dart';
+import './buscador.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,6 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => BottomNavigation(),
+        '/song': (context) => Buscador("song")
+      },
+
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -21,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: DoSomething("Agregar", icon, ["Canción", "Album", "Artista"])
+
     );
   }
 }

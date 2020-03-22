@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:platzi_trips_app/home_trip.dart';
-import 'package:platzi_trips_app/profile_trips.dart';
-import 'package:platzi_trips_app/search_trips.dart';
+import 'package:flutterapp/buscador.dart';
+import 'package:flutterapp/do_something.dart';
 
 class BottomNavigation extends StatelessWidget {
   @override
@@ -13,7 +12,7 @@ class BottomNavigation extends StatelessWidget {
         tabBar: CupertinoTabBar(
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home, color: Colors.indigo,),
+                icon: Icon(Icons.search, color: Colors.indigo,),
                 title: Text("")
             ),
             BottomNavigationBarItem(
@@ -21,26 +20,43 @@ class BottomNavigation extends StatelessWidget {
                 title: Text("")
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.transfer_within_a_station, color: Colors.indigo,),
+                icon: Icon(Icons.person, color: Colors.indigo,),
                 title: Text("")
             ),
           ],
         ),
+        // ignore: missing_return
         tabBuilder: (BuildContext context, int index) {
           switch (index) {
             case 0:
-              return CupertinoTabView(
-                builder: (BuildContext context) => HomeTrips(),
-              );
-              break;
+              return MaterialApp(
+                  title: 'Search',
+                  initialRoute: '/',
+                  routes: {
+                    '/': (BuildContext context) => DoSomething("Buscar", Icons.search, ["Canción", "Album", "Artista"]),
+                    '/song': (BuildContext context) => Buscador("Buscar canción"),
+                    '/album': (BuildContext context) => Buscador("Buscar album"),
+                    '/artist': (BuildContext context) => Buscador("Buscar artista"),
+                  },
+                  theme: ThemeData(
+                    primarySwatch: Colors.blue,
+                  ));
             case 1:
-              return CupertinoTabView(
-                builder: (BuildContext context) => SearchTrips(),
-              );
-              break;
+              return MaterialApp(
+                  title: 'Add',
+                  initialRoute: '/',
+                  routes: {
+                    '/': (BuildContext context) => DoSomething("Agregar", Icons.add, ["Canción", "Album", "Artista"]),
+                    '/add/song': (BuildContext context) => Buscador("Buscar canción"),
+                    '/add/album': (BuildContext context) => Buscador("Buscar album"),
+                    '/add/artist': (BuildContext context) => Buscador("Buscar artista"),
+                  },
+                  theme: ThemeData(
+                    primarySwatch: Colors.blue,
+                  ));
             case 2:
               return CupertinoTabView(
-                builder: (BuildContext context) => ProfileTrips(),
+                builder: (BuildContext context) => DoSomething("Usuarios", Icons.add, ["Canción", "Album", "Artista"]),
               );
               break;
 

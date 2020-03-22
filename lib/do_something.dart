@@ -10,6 +10,7 @@ class DoSomething extends StatelessWidget {
   IconData icon = Icons.add;
   List<String> words = ["Canción", "Album", "Artista" ];
 
+
   DoSomething (this.headerText, this.icon, this.words);
 
   @override
@@ -39,9 +40,9 @@ class DoSomething extends StatelessWidget {
               left: 20
             ),
           ),
-          ElementAction(icon, words[0]),
-          ElementAction(icon, words[1]),
-          ElementAction(icon, words[2]),
+          ElementAction(icon, words[0], 0),
+          ElementAction(icon, words[1], 1),
+          ElementAction(icon, words[2], 2),
         ],
 
       ),
