@@ -25,7 +25,6 @@ class _CircleButton extends State<CircleButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Expanded(
           child: FloatingActionButton(
             heroTag: null,
             backgroundColor: widget.color,
@@ -37,7 +36,6 @@ class _CircleButton extends State<CircleButton> {
               color: Color(0xFF4268D3),
             ),
           )
-      ),
     );
 
 

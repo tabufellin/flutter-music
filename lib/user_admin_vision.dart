@@ -3,14 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'buscador.dart';
 import 'circle_button.dart';
-class ElementAction extends StatelessWidget {
-  String text = "Canción";
+class UserAdminVision extends StatelessWidget {
+  String username = "pepetrueno";
   IconData icon = Icons.add;
-  List<String> actions = ["/song", "/album", "/artist"];
-  int kindAction = 0;
-  String heroTagStr = "btn";
-  Widget x = Buscador("buscar");
-  ElementAction(this.icon, this.text, this.kindAction, this.x);
+  Widget editAdminVision = Buscador("buscar");
+  UserAdminVision(this.icon, this.username, this.editAdminVision);
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +18,17 @@ class ElementAction extends StatelessWidget {
           Container(
               child: CircleButton(false, icon, 20.0, Color.fromRGBO(255, 255, 255, 0.6),
                       ()=> {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => x)
-                      )
-              }),
-            padding: EdgeInsets.all(20.0)
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => editAdminVision)
+                    )
+                  }),
+              padding: EdgeInsets.all(20.0)
           ),
 
           Container(
             child: Text(
-                text,
+              username,
               style: TextStyle(
                   color: Colors.black87,
                   fontSize: 20.0,
@@ -39,7 +36,7 @@ class ElementAction extends StatelessWidget {
               ),
             ),
 
-    ),
+          ),
 
         ],
 
